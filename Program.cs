@@ -4,48 +4,43 @@
 
 using namespace std;
 
-// Структура для хранения информации о пожертвовании
 struct Donation
 {
     string donorName;
     double amount;
 };
 
-// Вектор для хранения всех пожертвований в памяти
 vector<Donation> donations;
 
-// Функция для добавления пожертвования
 void addDonation(const string& name, double amount)
 {
     if (amount > 0)
     {
         donations.push_back({ name, amount});
-        cout << "Спасибо, " << name << ", за ваше пожертвование: "
+        cout << "Сіздің қайырымдылықыңыз үшін, " << name << "рахмет!: "
              << fixed << setprecision(2) << amount << " ₸!" << endl;
     }
     else
     {
-        cout << "Ошибка: сумма должна быть положительной." << endl;
+        cout << "Қате: сомасы оң болуы қажет." << endl;
     }
 }
 
-// Функция для отображения всех пожертвований
 void showDonations()
 {
     if (donations.empty())
     {
-        cout << "Пока нет пожертвований.\n";
+        cout << "Әзірге қайырымдылық жасалмады.\n";
         return;
     }
 
-    cout << "\n=== Список пожертвований ===\n";
+    cout << "\n=== Қайырымдылық тізімі ===\n";
     for (const auto&donation : donations) {
-        cout << donation.donorName << " пожертвовал: "
+        cout << donation.donorName << " садақа жасады: "
              << fixed << setprecision(2) << donation.amount << " ₸\n";
     }
 }
 
-// Основное меню программы
 int main()
 {
     int choice;
@@ -53,10 +48,10 @@ int main()
     while (true)
     {
         cout << "\nМеню:\n";
-        cout << "1. Сделать пожертвование\n";
-        cout << "2. Просмотреть пожертвования\n";
-        cout << "3. Выход\n";
-        cout << "Выберите опцию: ";
+        cout << "1. Қайырымдылық жасау\n";
+        cout << "2. Қайырымдылықтарды қарау\n";
+        cout << "3. Шығу\n";
+        cout << "Опцияны таңдаңыз: ";
         cin >> choice;
 
         if (choice == 1)
@@ -64,9 +59,9 @@ int main()
             string name;
             double amount;
 
-            cout << "Введите ваше имя: ";
+            cout << "Атыңызды енгізіңіз: ";
             cin >> name;
-            cout << "Введите сумму пожертвования: ";
+            cout << "Қайырымдылық сомасын енгізіңіз: ";
             cin >> amount;
 
             addDonation(name, amount);
@@ -77,12 +72,12 @@ int main()
         }
         else if (choice == 3)
         {
-            cout << "Спасибо за участие в благотворительности!" << endl;
+            cout << "Қайырымдылыққа қатысқандарыңызға рахмет!" << endl;
             break;
         }
         else
         {
-            cout << "Ошибка: неверный выбор. Попробуйте снова.\n";
+            cout << "Қате таңдау. Қайтадан байқап көріңіз.\n";
         }
     }
 
